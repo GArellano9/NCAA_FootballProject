@@ -1,0 +1,8 @@
+-- change int to interceptions
+ALTER TABLE cfb.data
+RENAME COLUMN `INT` TO Interceptions;
+-- find the average of all statistics for each team over the 11 year sequence
+CREATE TABLE CFB11 (
+SELECT UniversityName, AVG(CMP) AS CMP11, AVG(ATT) AS ATT11, AVG(YDS) AS YDS11, AVG(CMPPercent) AS CMPPercent11, AVG(YPA) AS YPA11, AVG(LNG) AS LNG11, AVG(TD) AS TD11, AVG(Interceptions) AS INTS11, AVG(SACK) AS SACK11, AVG(SYL) AS SYL11, AVG(RTG) AS RTG11, AVG(R_ATT) AS R_ATT11, AVG(R_AVG) AS R_AVG11, AVG(TOTAL_PLAYS) AS TPLAYS11, AVG(RUN_PERCENT) AS RPERCENT11, AVG(PASS_PERCENT) AS PPERCENT11
+FROM cfb.data
+GROUP BY UniversityName);
